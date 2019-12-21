@@ -4,3 +4,4 @@
 
 ### Entendendo a estrutura do front-end de uma página Web
 - [Introdução ao HTML](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_HTML.md)
+- [Introdução ao CSS](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_CSS.md)

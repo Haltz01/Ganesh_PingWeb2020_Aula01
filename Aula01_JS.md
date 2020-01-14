@@ -142,6 +142,20 @@ Ainda há os **comparadores lógicos**. São eles:
 - `||` (or): `(5 == 5 || 3 == 5)` --> verdade **OU** mentira é **verdade**	
 - `!` (not): `!(1 == 1)` --> **NÃO** verdade é **mentira**
 
+E, por último, também é importante conhecer o **comparador ternário**, que atua como um comparador IF:
+``` javascript
+// variablename = (condition) ? value1 : value2;
+var voteable = (age < 18) ? "Too young" : "Old enough"; 
+// Isso é igual a:
+voteable = ()(age) => {
+    if (age < 18) {
+        return "Too young";
+    }
+    else {
+        return "Old enough";
+    }
+}
+```
 
 ### Funções
 [...]

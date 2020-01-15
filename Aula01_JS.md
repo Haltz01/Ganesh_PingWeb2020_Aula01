@@ -1,3 +1,9 @@
+---
+title: Ganesh - Intrudção ao JavaScript
+tags: Begginers, JS, Tutorial, Introduction
+description: Some information about JS for beginners :)
+---
+
 # Javascript
 
 Javascript (ou ECMAScript) é uma linguagem de programção muito utilizada no desenvolvimento Web. Com ela, é possível programar o comportamento das páginas HTML - alterar conteúdo HTML, atributos HTML, CSS e mais.
@@ -108,8 +114,7 @@ Já ao usar `let`, a variável sempre será _block scoped_, ou seja, ela está l
 
 ### Operadores e comparadores:
 
-Operadores aritméticos bla bla bla
-[...]
+- **Operadores aritméticos**: são os operadores que realizam operações aritméticas em números (e variáveis com valores numéricos). Entretanto, em certos casos, é possível usar esses operadores com outros tipos de variáveis, como no caso de "soma" de strings (`"Nome " + "Sobrenome" -> "Nome Sobrenome"`).
 
 | Operador aritmético |     Operação    |            Exemplo           |
 |:-------------------:|:---------------:|:----------------------------:|
@@ -122,31 +127,32 @@ Operadores aritméticos bla bla bla
 |          ++         | Incremento (+1) |  `let x = 1; x++; // x = 2`  |
 |          --         | Decremento (-1) |  `let x = 1/ x--; // x = 0`  |
 
-Comparadores bla bla bla
-[...]
+- **Comparadores**:
 
 
-| Comparador |                  Compração                 | Exemplo |
-|:----------:|:------------------------------------------:|:-------:|
-|     ==     |             Igual a (em valor)             |         |
-|     ===    |          Igual a (em valor e tipo)         |         |
-|     !=     |         Diferente de ("não igual")         |         |
-|    !===    | Diferente de ("não igual" em valor e tipo) |         |
-|      >     |                  Maior que                 |         |
-|      <     |                  Menor que                 |         |
-|     >=     |             Maior ou igual que             |         |
-|     <=     |             Menor ou igual que             |         |
+| Comparador |                  Compração                 |     Exemplo         |
+|:----------:|:------------------------------------------:|:-------------------:|
+|     ==     |             Igual a (em valor)             |`1 == 1.0 (true)`    |
+|     ===    |          Igual a (em valor e tipo)         |`1 === 1.0 (false)`  |
+|     !=     |         Diferente de ("não igual")         |`1 != 1.0 (false)`   |
+|    !===    | Diferente de ("não igual" em valor e tipo) |`1 !== 1.0 (true)`   |
+|      >     |                  Maior que                 |`10 > 2 (true)`      |
+|      <     |                  Menor que                 |`1 < 2 (true)`       |
+|     >=     |             Maior ou igual que             |`5 >= 5 (true)`      |
+|     <=     |             Menor ou igual que             |`4 <= 3 (false)`     |
 
-Ainda há os **comparadores lógicos**. São eles:
-- `&&` (and): `(2 < 10 && 0 > 1)` --> verdade **E** mentira é **mentira** 
-- `||` (or): `(5 == 5 || 3 == 5)` --> verdade **OU** mentira é **verdade**	
-- `!` (not): `!(1 == 1)` --> **NÃO** verdade é **mentira**
+- Ainda há os **comparadores lógicos**. São eles:
+    - `&&` (and): `(2 < 10 && 0 > 1)` --> verdade **E** mentira é **mentira** 
+    - `||` (or): `(5 == 5 || 3 == 5)` --> verdade **OU** mentira é **verdade**	
+    - `!` (not): `!(1 == 1)` --> **NÃO** verdade é **mentira**
 
-E, por último, também é importante conhecer o **comparador ternário**, que atua como um comparador IF:
+- E, por último, também é importante conhecer o **comparador ternário**, que atua como um comparador IF:
 ``` javascript
-// variablename = (condition) ? value1 : value2;
+// Comparador ternário: variablename = (condition) ? value1 : value2;
 var voteable = (age < 18) ? "Too young" : "Old enough"; 
+
 // Isso é igual a:
+
 voteable = ()(age) => {
     if (age < 18) {
         return "Too young";
@@ -157,8 +163,61 @@ voteable = ()(age) => {
 }
 ```
 
-### Funções
-[...]
+### Tipos de dados:
+De forma simplificada, podemos resumir os tipos de dados em primitivos e complexos. Os **tipos primitivos** são: *string* (basicamente, caractéres e palavras - sempre entre aspas), *boolean* (verdadeiro ou falso), *number* (número inteiro, real) e *undefined* (variáveis sem valor definido). Já os **tipos complexos** são: *object* (listas, JSON, XML, vetores, dados inexistentes etc.) e *function* (funções).
+``` javascript
+typeof "" // String
+typeof "Marcelo Batata" // String
+
+typeof 3 // Number
+typeof 3.14 // Number
+typeof (3 + 4) // Number
+
+var x; // Declarada, mas sem valor atribuído
+typeof x // Undefined
+
+typeof true // Boolean
+typeof false // Boolean
+
+typeof { name:'John', age:34 } // Object
+typeof [1, 2, 3, 4] // Object
+typeof null // Object
+
+typeof function myFunc(){ console.log("Testing..."); } // Function
+``` 
+
+Obs.: Ainda há **null**, que é similar ao _undefined_, mas seu tipo é objeto, Por mais contraditório que isso seja, esse objeto _null_ represta um dado que não existe.
+``` javascript
+typeof undefined // retorna undefined
+typeof null // retorna object
+
+null === undefined // retorna false
+null == undefined // retorna true
+```
+
+### Funções:
+Funções são blocos de códigos que executam uma tarefa. Algo deve invocar a função para ela ser executada (ela precisa de algum "gatilho", nem que seja outra parte do código "chamando" ela - ou até ela própria). Ou seja, a execução do código dentro da função ocorre quando:
+- Um evento ocorre (ex.: usuário pressiona um botão);
+- A função é invocada por outro trecho de código Javascript;
+- A própria função se invocada e é executada automaticamente.
+
+#### Sintaxe:
+``` javascript
+function nome_funcao(parametro1, parametro2, parametro3) {
+  // código a ser executado quando a função for chamada
+  console.log("A função foi executada!");
+  
+  return {"mensagem" : "OK"};
+}
+
+// --- Outra alternativa, em certos casos, é a "Arrow Function": ---
+// O trecho abaixo pode ser escrito de forma mais concisa
+var multiplicacao = function(x, y) {
+  return x * y;
+};
+// Arrow function: (param1, param2, paramN) => { expressão / bloco da função }
+const multiplicacao2 = (x, y) => { return x * y };
+```
 
 ### Exemplo comentado:
 Para ajudar no entendimento da sintaxe da linguagem é bom analisar um trecho de código comentado:

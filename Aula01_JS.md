@@ -1,9 +1,3 @@
----
-title: Ganesh - Intrudção ao JavaScript
-tags: Begginers, JS, Tutorial, Introduction
-description: Some information about JS for beginners :)
----
-
 # Javascript
 
 Javascript (ou ECMAScript) é uma linguagem de programção muito utilizada no desenvolvimento Web. Com ela, é possível programar o comportamento das páginas HTML - alterar conteúdo HTML, atributos HTML, CSS e mais.

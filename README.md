@@ -10,4 +10,4 @@
 ### Comunicação na Web:
 - [URL e URI](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_URLs.md)
 - [Protocolos HTTP e HTTPS](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_HTTP_e_HTTPS.md)
-- [Cookies e sessões]((https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_Cookies_e_sessoes.md)
+- [Cookies e sessões](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_Cookies_e_sessoes.md)

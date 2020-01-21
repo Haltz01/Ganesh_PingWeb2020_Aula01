@@ -9,8 +9,11 @@ O HTTP é um protocolo _stateless_ (comunicação feita por meio de mensagens in
 Conforme dito anteriormente, a comunicação entre cliente e servidor ocorre por meio de mensagens individuais. Porém, quando um cliente quer comunicar-se com um servidor ele realiza os seguintes passos:
 1. **Abrir uma conexão TCP**: essa conexão é utilizada para enviar uma ou várias requisições e receber respostas.
 2. **Enviar uma mensagem HTTP**: um detalhe **importantíssimo** do protocolo HTTP é que essa mensagem **não é criptografada**, ou seja, ela pode ser lida por qualquer um que esteja monitorando o fluxo de pacotes da rede. A mensagem segue esse padrão:
+
 <img src="https://i.imgur.com/OxDXcP7.png"/> 
+
 3. **Ler a mensagem de resposta do servidor**: após enviar uma requisição, se não houver problemas, o servidor enviará uma resposta. Essa resposta também **não é criptografada** e segue esse padrão:
+
 <img src="https://mdn.mozillademos.org/files/13691/HTTP_Response.png"/>
 4. **Fechar ou reutilizar a conexão TCP que foi aberta**
 
@@ -47,7 +50,7 @@ Os códigos de status presentes em respostas HTTP (_HTTP responses_) indicam se 
 - Client errors (400–499),
 - Server errors (500–599).
 
-#### Os códigos que mais aparecem são:
+### Os códigos que mais aparecem são:
 - **`200` `OK`**: a requisição foi um sucesso, ou seja, o conteúdo da requisição foi obtido ou transmitido sem erros.
 - **`301` `Moved Permanently`**: código de redirecionamento indicando que a recurso solicitado  foi movido permanentemente para outro local - indicado no _header_ `Location`. O _browser_ é redirecionado para lá automaticamente. O código 308 funciona da mesma forma.
 - **`302` `Found`**: código de redirecionamento indicando que o conteúdo procurado está temporáriamente em outro local - também indicado no _header_ de resposta `Location`. O _browser_ é redirecionado para lá automaticamente. O código 307 funciona da mesma forma.

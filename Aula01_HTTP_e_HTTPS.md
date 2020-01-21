@@ -8,6 +8,7 @@ O HTTP é um protocolo _stateless_ (comunicação feita por meio de mensagens in
 
 Conforme dito anteriormente, a comunicação entre cliente e servidor ocorre por meio de mensagens individuais. Porém, quando um cliente quer comunicar-se com um servidor ele realiza os seguintes passos:
 1. **Abrir uma conexão TCP**: essa conexão é utilizada para enviar uma ou várias requisições e receber respostas.
+
 2. **Enviar uma mensagem HTTP**: um detalhe **importantíssimo** do protocolo HTTP é que essa mensagem **não é criptografada**, ou seja, ela pode ser lida por qualquer um que esteja monitorando o fluxo de pacotes da rede. A mensagem segue esse padrão:
 
 <img src="https://i.imgur.com/OxDXcP7.png"/> 
@@ -15,7 +16,8 @@ Conforme dito anteriormente, a comunicação entre cliente e servidor ocorre por
 3. **Ler a mensagem de resposta do servidor**: após enviar uma requisição, se não houver problemas, o servidor enviará uma resposta. Essa resposta também **não é criptografada** e segue esse padrão:
 
 <img src="https://mdn.mozillademos.org/files/13691/HTTP_Response.png"/>
-4. **Fechar ou reutilizar a conexão TCP que foi aberta**
+
+4. **Fechar ou reutilizar a conexão TCP que foi aberta**.
 
 ## Requisições 
 

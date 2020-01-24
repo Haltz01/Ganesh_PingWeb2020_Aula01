@@ -38,4 +38,21 @@ O processo de handshake segue o fluxo abaixo:
 
 ## Certificados digitais e autoridades cerificadoras
 
+Autoridades certificadoras são companhias que analisam e validam a identidade de sites, emails, pessoas e outras companhias e vinculam-nas a chaves de criptografia por meio de certificados digitais.
 
+Os certificados digitais buscam fornecer:
+- Autenticidade, ao oferecer uma credencial para validar a identidade de certa entidade;
+- Encriptação de informação, possibilitando comunicações mais seguras em redes inseguras (como a Internet);
+- Integridade, assinando pacotes de informação com o certificado a fim de tentar impedir pessoas mal-intecionadas de alterá-los;
+
+Para um certificado ser gerado, o aplicante:
+1. Gera um par de chaves de criptografia, uma pública e uma privada;
+2. Gera uma requisição de assinatura de certificado (CSR), que contém a recém gerada chave pública e dados como domínio, organização, email, endereço físico etc., e a envia para a autoridade certificadora;
+3. A autoridade certificadora verifica as informações da entidade e, se tudo estiver correto, assina a CSR com uma chave privada e devolve-a;
+4. Pronto! A entidade que aplicou para um certificado, enfim, tem um :) 
+
+Existem vários tipos de certificados digitais e os mais simples - e piores - são facilmente adquiridos (por [aqui](https://letsencrypt.org/) por exemplo). O que reforça a ideia de que um site utilizar HTTPS, ou seja, ser certificado, não demonstra que ele é 100% confiável.
+
+Para testes locais também é possível usar certificados "self-signed" por meio de certas ferramentas como o [OpenSSL](https://www.openssl.org/).
+
+É possível verificar informações sobre o certificado de um site clicando no cadeado ao lado da URL do website.

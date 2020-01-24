@@ -12,3 +12,8 @@
 - [Protocolo HTTP](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_HTTP.md)
 - [Protocolo HTTPS](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_HTTPS.md)
 - [Cookies e sessões](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_Cookies_e_sessoes.md)
+
+### Segurança Web e (algumas) vulnerabilidades:
+- Segurança Web
+- Cross Site Scripting (XSS)
+- SQL Injection

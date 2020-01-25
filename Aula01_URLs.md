@@ -15,11 +15,6 @@ Ex.: <a style="font-weight: bold; text-decoration: none;"> https://www.example.c
 
 <img src="https://media.gcflearnfree.org/content/55784768317faa316096bef2_06_10_2015/fullurlending_image2.png" alt="URL Structure"/>
 
-https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL
-
-https://www.tutorialspoint.com/html/understanding_url_tutorial.htm
-
-
 ### Protocolo (Scheme)
 
 <p style="border: 1px solid black; text-align: center;"><b style="background-color: #ffe48c;">https://</b>www.example.com:3000/file_path/resource?user=admin&passwd=1234#anchor</p>

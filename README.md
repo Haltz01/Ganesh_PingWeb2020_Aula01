@@ -15,5 +15,5 @@
 
 ### Segurança Web e (algumas) vulnerabilidades:
 - Segurança Web
-- Cross Site Scripting (XSS)
-- SQL Injection
+- [Cross Site Scripting (XSS)](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_XSS.md)
+- [SQL Injection](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_SQL_Injection.md)

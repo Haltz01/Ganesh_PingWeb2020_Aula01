@@ -125,7 +125,7 @@ CSP - Content Security Policy - é um _header_ na conexão HTTP ou HTTPS que ind
 
 CORS - Cross-Origin Resource Sharing - é um _header_ que o site passa para o navegador, dizendo com quais sites ele pode se conectar por meio da página atual. Esse recurso evita que XSS consiga enviar o _cookie_ roubado para o site do atacante. (Mesmo assim, ainda é possível burlar isso com callbacks em alguns casos).
 
-[Leia mais na aula de XSS]((https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_XSS.md))
+[Leia mais na aula de XSS](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_XSS.md)
 
 ## Leia Mais
 https://klauslaube.com.br/2012/04/05/entendendo-os-cookies-e-sessoes.html \

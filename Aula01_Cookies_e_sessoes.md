@@ -128,9 +128,9 @@ CORS - Cross-Origin Resource Sharing - é um _header_ que o site passa para o na
 [Leia mais na aula de XSS]((https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_XSS.md))
 
 ## Leia Mais
-https://klauslaube.com.br/2012/04/05/entendendo-os-cookies-e-sessoes.html
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
-https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+https://klauslaube.com.br/2012/04/05/entendendo-os-cookies-e-sessoes.html \
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy \
+https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS \
 https://developer.mozilla.org/en-US/docs/Tools
 
 ---

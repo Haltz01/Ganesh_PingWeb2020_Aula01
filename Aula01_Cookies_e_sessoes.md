@@ -4,7 +4,7 @@
 ## Cookies
 
 _Cookies_ são pequenos fragmentos de informação que um site pode armazenar no computador do usuário para uso posterior. Eles se mostram úteis, uma vez que 
-a conexão HTTP não apresenta nenhum meio de tornar as informações de uma conexão persistente. Se dependêssemos apenas das conexões HTTP, seria impossível usar um carrinho de compras, pois ao trocar para a página de compra, as informações seriam perdidas.
+o protocolo HTTP não apresenta nenhum meio de tornar as informações de uma conexão persistente. Se dependêssemos apenas das conexões HTTP, seria impossível usar um carrinho de compras, pois ao trocar para a página de compra, as informações seriam perdidas.
 
 Em um site de jogos de navegador, é muito comum que o progresso do jogo seja salvo em _cookies_ no navegador. Os _cookies_ também são bastante usados para armazenar configurações do cliente como volume do player de música ou vídeo, cor do fundo do site, etc.
 

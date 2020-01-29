@@ -12,10 +12,10 @@ A última tag é a mais perigosa, pois permite a execução de código javascrip
 
 Sabendo disso, alguns sites filtram a tag \<script>, removendo elas do input. Isso, entretanto, não é suficiente, pois há diversas outras maneiras de executar scripts dentro de uma página, seguem alguns exemplos:
 
-\<IMG SRC=”javascript:alert(‘XSS’);”>
-\<iframe %00 src="&Tab;javascript:prompt(1)&Tab;"%00>
-\<sVg><scRipt %00>alert&lpar;1&rpar; {Opera}
-\&#34;&#62;<h1/onmouseover='\u0061lert(1)'>%00
+\<IMG SRC=”javascript:alert(‘XSS’);”> \
+\<iframe %00 src="&Tab;javascript:prompt(1)&Tab;"%00> \
+\<sVg><scRipt %00>alert&lpar;1&rpar; {Opera} \
+\&#34;&#62;<h1/onmouseover='\u0061lert(1)'>%00 \
 [Ler mais](https://github.com/pgaijin66/XSS-Payloads/blob/master/payload.txt)
 
 ## Tipos de XSS
@@ -28,8 +28,8 @@ Um exemplo clássico desse tipo de XSS é um site que exibe, de alguma forma, um
 
 Exemplo 1: https://<span></span>localhost/busca?q=<script>alert(document.cookie)</script>
 
-Exemplo 2:
-![Exemplo2](https://i.imgur.com/tyCSWFd.png)
+Exemplo 2: \
+![Exemplo2](https://i.imgur.com/tyCSWFd.png) \
 Ao clicar em 'Search', o exemplo 1 é retomado
 
 

@@ -4,7 +4,7 @@
 
 Em geral, o atacante consegue visualizar dados armazenados no bando de dados que não pertencem a ele (informação de outros usuários, dados da aplicação, senhas etc.). Além disso, pode ser que o atacante consiga modificar e deletar dados do DB e, em casos mais extremos, escalar o ataque para comprometer o funcionamento do back-end da aplicação ou performar um ataque DoS. De forma similar, ele pode subverter a lógica de certas aplicações e, por exemplo, passar pelo portal de login de algum site sem ter uma conta.
 
-## Tipos de SQL Injections e exemplos
+## Exemplos de SQL Injections
 
 Vulnerabilidades desse tipo apresentam-se nas mais diferentes formas. Para cada situação de ataque, é possível que haja uma abordagem diferente.
 
@@ -48,32 +48,74 @@ SELECT * FROM products WHERE category = 'blabla' OR 1=1 --' AND (price < 100)
 
 ### Exemplo 2: acessando uma conta de administrador sem saber a senha
 
-Consider an application that lets users log in with a username and password. If a user submits the username wiener and the password bluecheese, the application checks the credentials by performing the following SQL query:
+Considere um portal de login, com usuário e senha. Se alguém submeter o usuário "mineboy2007" e a senha "sadgoat123", a aplicação checa as credenciais a partir da _query_  SQL:
 
 ``` SQL
-SELECT * FROM users WHERE username = 'wiener' AND password = 'bluecheese'
+SELECT * FROM users WHERE username = 'mineboy2007' AND password = 'sadgoat123'
 ```
+Se ela retornar as informações do usuário, o login é um sucesso. Do contrário, ele falha.
 
-If the query returns the details of a user, then the login is successful. Otherwise, it is rejected.
-
-Here, an attacker can log in as any user without a password simply by using the SQL comment sequence -- to remove the password check from the WHERE clause of the query. For example, submitting the username administrator'-- and a blank password results in the following query:
+Nesse cenário, um atacante poderia logar como qualquer usuário ao remover a checagem de senha ao inserir um comentário na _query_. Ele pode submeter, por exemplo, o usuário `admin' --` e qualquer coisa na senha (pois ela não será verificada). Assim, _query_ SQL fica:
 
 ``` SQL
-SELECT * FROM users WHERE username = 'administrator'--' AND password = ''
+SELECT * FROM users WHERE username = 'admin' --' AND password = ''
+```
+Essa _query_ irá retornar o usuário cujo nome é "admin" (independentemente da senha estar correta ou não) e logará o atacante no portal (como administrador).
+
+## [SQL Injection UNION Attack](https://portswigger.net/web-security/sql-injection/union-attacks)
+
+Se o resultado da _query_ é retornado pela resposta da aplicação e ela é vulnerável a SQL Injection, provavelmente é possível utilizar um UNION Attack para obter informações de outras tabelas do banco de dados. Esse ataque consiste em utilizar o `UNION`, que permite a execução de SELECTs adicionais em uma _query_. Por exemplo, a _query_ abaixo retorna 4 colunas: a, b (da table_1) e c, d (da table_2).
+``` SQL
+SELECT a, b FROM table_1 UNION SELECT c, d FROM table_2
+``` 
+
+Para uma _query_ com UNION funcionar, é necessário que:
+- Cada SELECT, antes e depois do UNION, tenha a mesma quantidade de colunas (ex.: na _query_ acima, estamos buscando 2 colunas no primeiro SELECT e 2 colunas no segundo SELECT);
+- O tipo de dado de cada coluna seja correspondente entre as _queries_ individualmente (ex.: na _query_ acima, a coluna a deve ser do mesmo tipo da coluna c e a coluna b deve ser do mesmo tipo da coluna d).
+
+### Dicas para esse tipo de ataque
+
+#### Descobrir número de colunas da tabela
+Para descobrir o número de colunas presentes na tabela, podemos usar o `ORDER BY` + `índice da coluna na tabela`. Esse comando ordena as respostas (por ordem alfabética por exemplo) de acordo com certa coluna. Para descobrir a quantidade de colunas da tabela, basta ir aumentando o índice da coluna no `ORDER BY`. Quando o servidor responder com um erro para o `ORDER BY X`, sabemos que a coluna X não existe e, portanto, a tabela tem X-1 colunas.
+``` SQL
+blabla '' ORDER BY 1 --
+blabla '' ORDER BY 2 --
+blabla '' ORDER BY 3 --
 ```
 
-This query returns the user whose username is administrator and successfully logs the attacker in as that user.
+Se o erro for enviado ao cliente de forma explícita, ele deve ser algo como `"The ORDER BY position number 3 is out of range of the number of items in the select list."`
 
-## Mais:
-- [SQL Injection UNION Attack](https://portswigger.net/web-security/sql-injection/union-attacks)
+Outra opção para descobrir o número de colunas é utilizar ORDER BY passando vários NULL como "colunas" de ordenação: 
+``` SQL
+blabla '' ORDER BY NULL, NULL -- tabela tem pelo menos 2 colunas se não retornar erro
+blabla '' ORDER BY NULL, NULL, NULL -- tabela tem pelo menos 3 colunas se não retornar erro
+```
 
+### [Blind SQL Injection](https://portswigger.net/web-security/sql-injection/blind)
+
+- Em DBs da Oracle, um SELECT sempre deve conter um FROM <nome_da_tabela>. Para isso, uma tabela padrão é DUAL
+
+- Para descobrir o número de colunas da tabela usa-se ORDER BY 1,2 ..., N ou ORDER BY NULL, NULL, ..., NULL (null "é de todo tipo")
+- Para descobrir o tipo de dado de cada coluno basta ir substituindo cada NULL (do ORDER BY) por uma string, int, char etc.
+- Exibir lista de tabelas do DB (exceto Oracle): SELECT * FROM information_schema.tables
+- Exibir lista de colunas de uma tabela: SELECT * FROM information_schema.columns WHERE table_name = 'Users'
+- Em DBs da Oracle, usa-se: SELECT * FROM all_tables (achar tabelas) e SELECT * FROM all_tab_columns WHERE table_name = 'nome_da_tabela' (achar colunas)
+- Para concatenar resultados (colunas diferentes), pode-se usar o `||`: `' UNION SELECT username || '~' || password FROM users -- -` (ORACLE e POSTGRE) ou `'foo'+'bar'` (MICROSOFT) ou `'foo' 'bar'` e `CONCAT('foo','bar')` (MYSQL)
+
+BLIND SQL INJECTION:
+- Check the beggining of a password by using SUBSTRING: `SELECT TrackingId FROM TrackedUsers WHERE TrackingId = '` + `xyz' UNION SELECT 'a' FROM Users WHERE Username = 'Administrator' and SUBSTRING(Password, 1, 1) > 'm'--` -> if TRUE, the 1st password letter is greater than 'm' (SUBSTR or SUBSTRING depends on the database)
+- Another possible check is: `SELECT TrackingId FROM TrackedUsers WHERE TrackingId = '` + `xyz' UNION SELECT 'a' WHERE 1=1--`
+- [OAST payloads are a thing?](https://portswigger.net/blog/oast-out-of-band-application-security-testing)
 
 https://portswigger.net/web-security/sql-injection
 
 https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/
 
-https://www.w3schools.com/sql/sql_injection.asp
+https://portswigger.net/web-security/sql-injection/cheat-sheet
 
 https://owasp.org/www-community/attacks/SQL_Injection
 
 https://www.acunetix.com/websitesecurity/sql-injection/
+
+
+https://portswigger.net/burp/application-security-testing

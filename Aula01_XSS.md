@@ -72,4 +72,4 @@ Outra forma de garantir que a página não sofrerá de vulnerabilidades XSS, mes
 ## Fontes
 * https://www.welivesecurity.com/br/2017/07/07/vulnerabilidade-cross-site-scripting/
 * https://pt.pmgacademy.com/blog/artigos/tudo-sobre-xss
-* https://www.digitalmunition.me/webinar-8-ataques-em-aplicacoes-web-edicao-xss-stored-reflected-e-dom-based-2/
+* https://littlemaninmyhead.wordpress.com/2018/06/24/demonstrating-reflected-versus-dom-based-xss/

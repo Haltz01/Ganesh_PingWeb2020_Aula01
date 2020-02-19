@@ -2,8 +2,10 @@
 
 ## Sumário - Aula 01
 
+### Conceitos iniciais:
+- [Arquitetura de uma aplicação Web (e a diferença entre Internet e Web)](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_ArquiteturaWebApp.md)
+
 ### Estrutura do front-end de uma página Web:
-- [Arquitetura de uma aplicação Web]
 - [Introdução ao HTML](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_HTML.md)
 - [Introdução ao CSS](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_CSS.md)
 - [Introdução ao Javascript](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_JS.md)

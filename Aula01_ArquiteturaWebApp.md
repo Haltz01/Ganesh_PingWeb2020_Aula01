@@ -33,6 +33,12 @@ O servidor da aplicação é responsável por tratar as requisições que chegam
 ### Servidor do banco de dados
 O banco de dados é responsável por armazenar dados - como informações de login de usuários ou itens de uma loja - de forma persistente e no server-side. Além de armanenar esses dados, ele é capaz de fazer buscas e retornar informações para o servidor da aplicação Web utilizar e possivelmente devolver ao cliente.
 
-## Entendo o "funcionamento" do front-end
+## Entendo o "fluxo" de informação do front-end
 
-A partir da imagem a seguir, iremos entender os componentes do que conhecemos como "front-end" e quais suas respectivas funções e importâncias para o funcionamento de uma aplicação Web.
+Primeiramente, ao digitar a URL de um site, o navegador deve convertê-la em um endereço IP. Esse processo é chamado de "name resolution" e é realizado através de um DNS (Domain Name System), que faz a associação `hostname da URL:endereço IP`.
+
+Em seguida, o navegador fará uma requisição para o servidor referente ao endereço IP encontrado no primeiro passo. Essa requisição, em geral, será um `GET` solicitando a página web especificada na URL ou um `POST` enviando dados que serão usados pelo back-end do servidor.
+
+Como resposta, o servidor (back-end) enviará arquivos e informações do tipo HTML, CSS, JS, PHP, JSON, JPG e possivelemnte outros. Esses arquivos são tratados pelo navegador, que é responsável por exibí-los ao usuário, e pelo código da página web presente no front-end. Além disso, podem haver _headers_ importantes nesses arquivos, contendo, por exemplo, informações sobre a sessão atual.
+
+Além disso, vale destacar que o SO do cliente é responsável por fazer as requisições saírem do navegador em direção à Internet e recuperar as respostas vindas do servidor pela Internet. O sistema operacional expõe o computador à rede através de certas portas, que permitem a troca de informação via HTPP/HTTPS e outros.

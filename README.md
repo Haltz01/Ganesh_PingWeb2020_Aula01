@@ -18,6 +18,7 @@
 
 ### Algumas vulnerabilidades:
 - [Cross Site Scripting (XSS)](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_XSS.md)
+- [XML External Entities (XML) Injection](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_XXE.md)
 - [SQL Injection](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_SQL_Injection.md)
 
 ---

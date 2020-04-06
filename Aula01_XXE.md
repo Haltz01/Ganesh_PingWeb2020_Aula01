@@ -1,4 +1,4 @@
-# XMLs, DTDs e XXE Injection
+# XML, DTD e XXE Injection
 
 ## O que é XXE Injection?
 
@@ -88,7 +88,7 @@ Como explicado anteriormente, as entidades externas presentes em documento XML p
 Caso o servidor retornasse o que está em `<root>` para ser exibido em um documento HTML, receberíamos o conteúdo de `/etc/passwd`.
 
 ### Exemplo 2: Execução de código remoto com PHP
-Com um pouco de sorte, é possível que o servidor tenho o módulo (wrapper) `expect` carregado (por padrão ele não é), o que possivelmente permitirá execução de código a partir de um payload como o a seguir _(payload de exemplo da OWASP)_.
+Com um pouco de sorte, é possível que o servidor tenho o módulo (wrapper) `expect` carregado (por padrão ele não é), o que possivelmente permitirá execução de código a partir de um payload como o a seguir.
 ``` XML
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE foo

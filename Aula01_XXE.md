@@ -50,9 +50,9 @@ Essas entidades podem ser das especificações/padrões do XML, como  `&lt;` e `
 ``` XML
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE teste [ <!ENTITY texto_com_top "Top top" > ]>
-<tag_generica> &texto_com_top; </tag_generica>
+<tag_generica> &lt;&texto_com_top;&gt; </tag_generica>
 ```
-Nesse documento XML, `&texto_com_top;` seria substituido pelo texto `Top top`.
+Nesse documento XML, `&texto_com_top;` seria substituido por`<Top top>`.
 
 Com base nesse exemplo, nota-se que as entidades criadas devem ser referenciadas com `&` + `nome da entidade` + `;`. 
 

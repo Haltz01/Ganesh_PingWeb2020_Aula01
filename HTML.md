@@ -16,7 +16,7 @@ Um exemplo básico da estruturação de uma página HTML é:
     </body>
 </html> <!-- fim do documento HTML
 ```
-_Obs.: \<!-- oi --> representa um cometário_
+_Obs.: <!-- oi --> representa um cometário_
 
 ## Tags
 A estrutura de uma tag segue o padrão abaixo:
@@ -28,19 +28,19 @@ A estrutura de uma tag segue o padrão abaixo:
 Nota-se, portanto, que as tags HTML vêm em pares: `<tag>` + `</tag>`, indicando seu início e seu fim, respectivamente. Em alguns casos, elas também podem ser escritas com somente uma tag: `<tag/>`.
 
 ### "Principais" tags 
-- `<!--...-->`: define um comentário dentro do HTML
-- `<a></a>`: define um hyperlink para outro ponto da página - âncora - ou para um endereço externo
-- `<b></b>`: texto em negrito 
-- `<body></body>`: define o corpo do documento HTML
+- `<!--...-->`: define um comentário dentro do HTML.
+- `<a></a>`: define um hyperlink para outro ponto da página - âncora - ou para um endereço externo.
+- `<b></b>`: texto em negrito.
+- `<body></body>`: define o corpo do documento HTML.
 - `<button></button>`: cria um botão, que pode ser de 3 tipos: button, reset e submit.
 - `<div></div>`: define uma seção dentro do documento HTML - é literalmente um "bloco" vazio que pode ser trabalhado individualmente.
-- `<footer></footer>`: define o footer da página (parte inferior do documento)
-- `<form></form>`: cria um formulário HTML vazio - os campos para inserir dados e os botões devem ser inseridos dentro dele.
-- `<h1></h1>` até `<h6></h6>`: define os cabeçalhos ("headings") da página.
-- `<head></head>`: contém informações sobre o documento/página
+- `<footer></footer>`: define o footer da página (parte inferior do documento).
+- `<form></form>`: cria um formulário HTML vazio - os campos para inserir dados e os botões devem ser inseridos dentro dele com outras tags.
+- `<h1></h1>` até `<h6></h6>`: define textos de cabeçalho ("headings") da página - são como "títulos".
+- `<head></head>`: contém informações sobre o documento/página.
 - `<header></header>`: define a parte superior da página.
 - `<html></html>`: tag raiz de um documento HTML.
-- `<i></i>`: texto em itálico
+- `<i></i>`: texto em itálico.
 - `<iframe></iframe>`: define um iframe dentro do documento. Um iframe é uma janela para um documento HTML no meio do corpo de um outro documento (principal).
 - `<img></img>`: define uma imagem.
 - `<input></input>`: Define algum tipo de controle de entrada do usuário, ou seja, nele o usuário passará algum valor, condição, opção etc. Pode assumir vários tipos, conforme mostrado [aqui](https://www.w3schools.com/tags/att_input_type.asp). 
@@ -59,12 +59,12 @@ Nota-se, portanto, que as tags HTML vêm em pares: `<tag>` + `</tag>`, indicando
 Para explicações mais detalhadas sobre as tags, acesse: [Código Fonte](https://www.codigofonte.com.br/artigos/principais-tags-de-html) e [W3Schools](https://www.w3schools.com/tags/ref_byfunc.asp).
 
 ## Atributos
-Todos os elementos HTML apresentam atributos. Eles normalmente vêm dentro da tag inicial que define o elemento. Os atributos, em geral, tem a forma: _nome_atributo="valor"_.
+Todos os elementos HTML apresentam atributos. Eles normalmente vêm dentro da tag inicial que define o elemento. Os atributos, em geral, tem a forma: `nome_atributo="valor"`.
 Esses atributos detalham o elemento, definindo atributos específicos como nome, classe, ID, tamanho, referências externas e internas etc.
 
 Alguns exemplos de tags com atributos são:
 ``` HTML
-<a href="https://theuselessweb.com/"> Clique para acessar um site foda. </a>
+<a href="https://theuselessweb.com/"> Clique para acessar um site top. </a>
 <img src="test_img.jpg" alt="imagem de teste" />
 <p style="color: red; background-color: #FFFFFF"> Olá mundo! </p>
 ```
@@ -73,7 +73,7 @@ Alguns exemplos de tags com atributos são:
 - `style="color: black; text-align: center;"`: especifica o estilo do elemento, ou seja, define características como alinhamento, tamanho, cor, bordas etc. Funciona como um CSS (explicado adiante) dentro do próprio elemento HTML.
 - `alt="nome_referencia"`: define um nome que será exibido caso o conteúdo do elemento não possa ser carregado (usado em imagens). Além disso, esse atributo é imporatnte para deficientes visuais navegando pela página, pois esse "alt" é lido para eles pelo browser ou um software de auxílio (como o Chrome Speak).
 
-Além desses, há uma infinidade de atributos para diferentes elementos. Para saber mais sobre os atributos de alguma elemento basta pesquisar pela tag.
+Além desses, há uma infinidade de atributos para diferentes elementos. Para saber mais sobre os atributos de algum elemento basta pesquisar por sua tag.
 
 ### Inspecionando páginas
 Para acessar o código-fonte de um site, basta pressionar `ctrl`+`U` (para visualizar o source-code) ou `ctrl`+`shift`+`I` (para entrar no modo de inspeção).

@@ -1,12 +1,12 @@
 # CSS
 
 CSS (Cascading Style Sheets) é uma linguagem usada para descrever o estilo de uma página HTML, ou seja, de que forma os elementos de um documento serão apresentados/exibidos.
-O CSS pode ser usado para alterar fontes, cores, tamanho, espacamento, animações e mais de certo conteúdo. 
+O CSS pode ser usado para alterar fontes, cores, tamanhos, espacamentos, animações etc. de diferentes conteúdos. 
 
 ## Tipos e sintaxe
 A estilização dos elementos de uma página pdoe ser feita de 3 formas diferentes:
 - **Internal CSS**: a estilização fica dentro do documento HTML, no HEAD, entre tags `<style></style>`;
-- **External CSS**: há um arquivo externo do tipo .css que é importado para o documento HTML através de uma tag `<link>`;
+- **External CSS**: há um arquivo externo do tipo `.css` que é importado para o documento HTML através de uma tag `<link>`;
 - **Inline CSS**: a descrição do estilo de um elemento é feito através de um parâmetro (style) dentro do próprio elemento (ex.: `<h1 style="color: blue; text-align: center;"> Oi </h1>`).
 
 ``` HTML

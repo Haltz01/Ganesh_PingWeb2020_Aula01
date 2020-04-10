@@ -1,10 +1,10 @@
 # Javascript
 
-Javascript (ou ECMAScript) é uma linguagem de programção muito utilizada no desenvolvimento Web. Com ela, é possível programar o comportamento das páginas HTML - alterar conteúdo HTML, atributos HTML, CSS e mais.
+Javascript (ou ECMAScript) é uma linguagem de programção muito utilizada no desenvolvimento Web. Com ela, é possível programar o comportamento das páginas HTML - alterar conteúdo e atributos HTML, CSS e mais.
 
-O JavaScript nasceu como uma linguagem voltada para processamento no navegador. Entretanto, com a chegada do Node.js, que permite a execução de Javascript fora do navegador, back-ends de websites e aplicações feitas majoritariamente em Javascript (como o Discord) também passaram a utilizar amplamente a linguagem.
+O JavaScript nasceu como uma linguagem voltada para processamento no navegador. Entretanto, com a chegada do Node.js, que permite a execução de Javascript fora do navegador, _back-ends_ de websites e aplicações feitas majoritariamente em Javascript (como o Discord) também passaram a utilizar amplamente a linguagem.
 
-Praticamente todas as páginas na internet usam Javascript para fazer operações client-side, como verificação de campos, envio de formulários, gerenciamento de cookies, solicitações de informações para o servidor, etc.
+Praticamente todas as páginas na internet usam Javascript para fazer operações _client-side_, como verificação de campos, envio de formulários, gerenciamento de cookies, solicitações de informações para o servidor etc.
 
 ``` HTML
 <!DOCTYPE html>
@@ -71,7 +71,7 @@ Ao usar `var`, se a variável for declarada fora de uma função, ela poderá se
     console.log(msg_introdutoria) // exibirá "Oi mundo!"
 ```
 
-Já ao usar `let`, a variável sempre será _block scoped_, ou seja, ela está limitada ao bloco de código em que foi declarada (e aos blocos mais internos a ela). Um bloco é definido por chaves (fora { dentro do bloco } fora ). Além disso, variáveis declaradas com _let_ não podem ser redeclaradas (mas podem ser atualizadas).
+Já ao usar `let`, a variável sempre será _block scoped_, ou seja, ela está limitada ao bloco de código em que foi declarada (e aos blocos mais internos a ela). Um bloco é definido por chaves (`fora do bloco { dentro do bloco } fora do bloco`). Além disso, variáveis declaradas com _let_ não podem ser redeclaradas (mas podem ser atualizadas).
 
 ``` javascript
     let msg_introdutoria = "Olá mundo!";
@@ -87,7 +87,7 @@ Já ao usar `let`, a variável sempre será _block scoped_, ou seja, ela está l
     console.log(msg_introdutoria_2); // msg_introdutoria_2 não está definida
 ```
 
-**Constantes** também são usadas para armazenar dados, mas elas não podem ser modificadas durante a execução do programa. Uma vez declaradas com certo valor, elas não pode ser alteradas. Além disso, constantes são _block scoped_ e não podem ser redeclaradas (nem alteradas - como foi dito logo acima).
+**Constantes** também são usadas para armazenar dados, mas elas não podem ser modificadas durante a execução do programa. Uma vez declaradas com certo valor, elas não podem ser alteradas. Além disso, constantes são _block scoped_ e não podem ser redeclaradas (nem alteradas - como foi dito logo acima).
 ``` javascript
     const saudacao = "Olá!";
     saudacao = "Oi!"; // Erro: (re)atribuição à constante
@@ -186,14 +186,14 @@ typeof undefined // retorna undefined
 typeof null // retorna object
 
 null === undefined // retorna false
-null == undefined // retorna true
+null == undefined // retorna true (loose comparison)
 ```
 
 ### Funções:
-Funções são blocos de códigos que executam uma tarefa. Algo deve invocar a função para ela ser executada (ela precisa de algum "gatilho", nem que seja outra parte do código "chamando" ela - ou até ela própria). Ou seja, a execução do código dentro da função ocorre quando:
+Funções são blocos de códigos que executam uma tarefa. Algo deve invocar a função para ela ser executada (ela precisa de algum "gatilho", nem que seja outra parte do código "chamando" ela - ou até ela própria se invocando). Ou seja, a execução do código dentro da função ocorre quando:
 - Um evento ocorre (ex.: usuário pressiona um botão);
 - A função é invocada por outro trecho de código Javascript;
-- A própria função se invocada e é executada automaticamente.
+- A própria função invoca-se e é executada automaticamente.
 
 #### Sintaxe:
 ``` javascript

@@ -2,11 +2,11 @@
 
 XSS é a sigla para Cross-Site Scripting (porque CSS já estava sendo usada).
 Cross-Site Scripting é uma técnica que utiliza de certas vulnerabilidades para inserir código malicioso em uma página legítima na web.
-Geralmente o código é escrito em javascript, por ser a linguagem que o navegador usa durante a renderização de páginas web.
+Geralmente, o código é escrito em Javascript, por ser a linguagem que o navegador usa durante a renderização de páginas web.
 
 Se quiser saber mais sobre Javascript, [clique aqui](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_JS.md).
 
-A injeção de código por XSS, geralmente, parte do mesmo ponto de partida: falta de sanitização do _input_ do usuário.
+As injeções de código por XSS, geralmente, têm o mesmo ponto de partida: falta de sanitização do _input_ do usuário.
 
 Por exemplo, num formulário de cadastro, existem diversos campos nos quais o usuário pode digitar, como nome ou endereço.
 Mais tarde, quando outras pessoas visualizarem o nome que você cadastrou, o servidor vai entregar ao navedor delas o texto que você digitou. Ou seja, o navegador está executando uma instrução que é parte feita pelo desenvolvedor da página e parte feita por você.
@@ -39,7 +39,7 @@ Exemplo de site que sanitiza a entrada do usuário
 
 ## Diferentes Classificações de XSS
 
-O exemplo que foi dado acima é chamado de DOM Based XSS, isso porque é o javascript que modifica a página HTML por meio do [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction). Além do ataque ter a classificação de ser ou não DOM Based, ainda existe outra classificação quanto ao ataque XSS: onde ele está armazenado.
+O exemplo que foi dado acima é chamado de DOM Based XSS, isso porque é o Javascript que modifica a página HTML por meio do [DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction). Além do ataque ter a classificação de ser ou não DOM Based, ainda existe outra classificação quanto ao ataque XSS: onde ele está armazenado.
 
 ### Reflected XSS
 
@@ -48,21 +48,21 @@ Basta você clicar nele e você já está executando o código potencialmente ma
 
 ![Exemplo reflected](https://i.imgur.com/isfD885.png)
 
-Justamente por não ser armazenado no servidor, o ataque XSS Refletido é mais difícil de rastrear, porém é possível que a vítima tenha uma ideia do que está acontecendo ao ler a url.
+Justamente por não ser armazenado no servidor, o ataque XSS Refletido é mais difícil de rastrear, porém é possível que a vítima tenha uma ideia do que está acontecendo ao ler a URL.
 
-No exemplo da imagem, o "Conteúdo buscado" pode ser colocado na página de duas formas: pelo servidor, antes de enviar a resposta da requisição, ou pelo cliente, após receber a página. Se a página já vem com o conteúdo escrito, o ataque XSS não é DOM Based, mas se ele é modificado posteriormente por meio de javascript, aí sim.
+No exemplo da imagem, o "Conteúdo buscado" pode ser colocado na página de duas formas: pelo servidor, antes de enviar a resposta da requisição, ou pelo cliente, após receber a página. Se a página já vem com o conteúdo escrito, o ataque XSS não é DOM Based, mas caso ele seja modificado posteriormente por meio de Javascript ele é.
 
 ### Stored XSS
 
-Esse tipo de ataque XSS, ao contrário do Refletido, é Armazenado no servidor. Um exemplo clássico seria um post de um usuário em uma rede social. Se o texto do post não for sanitizado quando salvo no banco de dados, na hora de exibí-lo, código malicioso poderá ser executado.
+Esse tipo de ataque XSS, ao contrário do Refletido, é armazenado no servidor. Um exemplo clássico seria um post de um usuário em uma rede social. Se o texto do post não for sanitizado quando salvo no banco de dados, na hora de exibí-lo, código malicioso poderá ser executado.
 
 Dessa vez, é impossível a vítma evitar o ataque, já que ela está apenas navegando no site, e não é possível diferenciar o código malicioso do código genuíno da página.
 
-Portanto, o Stored XSS é mais nocivo no sentido de medidas de proteção que o usuário pode tomar, mas é facilmente idenficado pelos administradores, uma vez que o código é armazenado no servidor.
+Portanto, o Stored XSS é mais nocivo (em se tratando de medidas de proteção que o usuário pode tomar), mas é "facilmente" identificado pelos administradores, uma vez que o código é armazenado no servidor.
 
 ## Prevenção contra o XSS
 
-Conforme dito, o XSS se apoia, majoritariamente, na falta de filtros aplicados no conteúdo digitado pelo usuário, portanto a forma mais simples e eficiente de acabar com vulnerabilidades XSS nos campos de uma página é aplicar [filtros](http://htmlpurifier.org/comparison#striptags) e sanitizações, de modo a remover caracteres especiais que possam vir a causar problemas.
+Conforme dito, o XSS se apoia, majoritariamente, na falta de filtros aplicados no conteúdo digitado pelo usuário, portanto a forma mais simples e eficiente de acabar com vulnerabilidades XSS nos campos de uma página é aplicar [filtros](http://htmlpurifier.org/comparison#striptags) e sanitizações, de modo a remover caractéres especiais que possam vir a causar problemas.
 
 ### CSP
 

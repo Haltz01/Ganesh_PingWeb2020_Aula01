@@ -4,14 +4,14 @@
 
 XXE (XML external entity) Injection é uma vulnerabilidade web que permite ao atacante se aproveitar do processamento de dados XMLs de uma aplicação de maneira maliciosa.
 
-Dentre outros problemas, esse tipo de ataque pode levar o atacante à visualização de arquivos confidenciais e à interação com o backend da aplicação e até com sistemas externos, levando a possíveis SSRFs.
+Dentre outros problemas, esse tipo de ataque pode levar o atacante à visualização de arquivos confidenciais e à interação com o backend da aplicação (e, possivelmente, sistemas externos), levando a possíveis SSRFs.
 
-Mas antes de entender como funciona esse ataque, devemos entender o que é XML, DTDs e entidades.
+Mas antes de entender como funciona esse ataque, devemos entender o que é: XML, DTDs e entidades.
 
 ## Explicando brevemente XML
-XML significa E**x**tensible **M**arkup **L**anguage. Essa linguagem de marcação foi criada para armazenar e transportar dados, assim como o JSON. Por sinal, a popularidade do XML diminuiu devido ao JSON.
+XML significa **Ex**tensible **M**arkup **L**anguage. Essa linguagem de marcação foi criada para armazenar e transportar dados, assim como o JSON. Por sinal, a popularidade do XML diminuiu devido ao JSON.
 
-O XML utlizada _tags_ em uma estrutura de árvore, de forma similar ao HTML (tags uma dentro da outra e dados entre o ínicio e o fim das tags). Entretanto, o XML não tem _tags_ predefinidas, ou seja, a pessoa que está criando o XML pode definir suas próprias tags, como no exemplo abaixo:
+O XML utlizada _tags_ em uma estrutura de árvore, de forma similar ao HTML (tags uma dentro da outra e dados entre o ínicio e o fim das tags). Entretanto, o XML não tem _tags_ predefinidas, ou seja, a pessoa que está criando o XML pode definir suas próprias _tags_, como no exemplo abaixo:
 
 ``` XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -23,10 +23,10 @@ O XML utlizada _tags_ em uma estrutura de árvore, de forma similar ao HTML (tag
 </msg>
 ```
 
-Para saber um pouco mais sobre XML, acesse a [w3schools](https://www.w3schools.com/xml/).
+Para saber um pouco mais sobre XML, pesquise em sites como a [w3schools](https://www.w3schools.com/xml/).
 
 ## DTD (Document Type Definition)
-Como descrito acima, DTD significa "definição de tipo de documento" e ela contém declarações que definem a estrutura do XML, os tipos de dados que ele contém e mais. A DTD é opcional. Ela é declarada dentro de um elemento chamado `DOCTYPE` no começo do documento XML. Além disso, a DTD pode ser interna - ela é declarada dentro do documento XML - ou externa - ela é carregada de uma fonte externa.
+Como descrito acima, DTD significa "definição de tipo de documento" e ela contém declarações que definem a estrutura do XML, os tipos de dados que ele contém e mais. A DTD é opcional. Ela é declarada dentro de um elemento chamado `DOCTYPE` no começo do documento XML. Além disso, a DTD pode ser interna - declarada dentro do documento XML - ou externa - carregada de uma fonte externa.
 
 Para exemplificar, uma XML com DTD segue esse padrão:
 ``` XML
@@ -41,7 +41,7 @@ Para exemplificar, uma XML com DTD segue esse padrão:
     <elem3> aaaa 1235125 pode haver qualquer coisa aqui </elem3>
 </elem1>
 ```
-_Obs.: PCDATA significa "Parsed Character Data" e representa um tipo de dado qualquer (não sei como explicar melhor, desculpa)
+_Obs.: PCDATA significa "Parsed Character Data" e representa um tipo de dado qualquer (não sei como explicar melhor, desculpa).
 
 ## Entidades XML
 As _XML entities_ são uma forma de representar itens do documento XML sem usar seus dados diretamente. Pode-se pensar que essas entidades seriam como variáveis em uma linguagem de programação.

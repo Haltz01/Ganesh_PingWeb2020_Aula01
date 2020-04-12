@@ -11,15 +11,15 @@
 - [Introdução ao Javascript](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Javascript.md)
 
 ### Comunicação na Web:
-- [Entendendo as URLs](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_URLs.md)
+- [Entendendo as URLs](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/URLs.md)
 - [Protocolo HTTP](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Protocolo_HTTP.md)
 - [Protocolo HTTPS](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Protocolo_HTTPS.md)
 - [Cookies e sessões](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Cookies_e_sessoes.md)
 
 ### Algumas vulnerabilidades:
-- [Cross Site Scripting (XSS)](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_XSS.md)
-- [XML External Entities (XML) Injection](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_XXE.md)
-- [SQL Injection](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_SQL_Injection.md)
+- [Cross Site Scripting (XSS)](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/XSS.md)
+- [XML External Entities (XML) Injection](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/XXE.md)
+- [SQL Injection](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/SQL_Injection.md)
 
 ---
 #### Autores do material:

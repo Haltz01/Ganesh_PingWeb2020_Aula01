@@ -14,7 +14,7 @@ Um exemplo básico da estruturação de uma página HTML é:
         <h1> Cabeçalho da página </h1> <!-- define um "heading" -->
         <p> Parágrafo </p> <!-- (obviamente) representa um parágrafo -->
     </body>
-</html> <!-- fim do documento HTML
+</html> <!-- fim do documento HTML -->
 ```
 _Obs.: <!-- oi --> representa um cometário_
 

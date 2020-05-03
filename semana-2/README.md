@@ -20,4 +20,4 @@
 ---
 #### Autores do material:
 - [Gabriel Van Loon](https://github.com/GabrielVanLoon)
-- [Alexandre Junior](#)
+- [Alexandre Junior](https://github.com/alexandregjr)

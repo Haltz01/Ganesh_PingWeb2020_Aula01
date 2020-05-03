@@ -67,7 +67,7 @@ Basta alguém conseguir ler esse _cookie_ para ter acesso à conta atrelada à s
 Não há como evitar que alguém com acesso físico ao seu computador (com o navegador aberto na página) obtenha sua sessão, mas se isso ocorreu ele já tem muito mais "poder" sobre seus dados e sessões.
 
 O que é possível é evitar que pessoas mal intencionadas obtenham sua sessão por meio de outros ataques, como **XSS (Cross-Site-script)** e **MITM (Man-In-The-Middle**). O segundo ataque caracteriza-se, basicamente, por haver um atacante entrando no meio de uma conexão não encriptada (HTTP) e lendo todo o tráfego entre a vítima e o site, incluindo os _cookies_ enviados e a sessão. Já o primeiro ataque resume-se no atacante injetar código na página de alguma forma. Esse código injetado pode, em certos casos, ler, modificar e até enviar o conteúdo dos _cookies_ armazenados para algum outro servidor.
-([Ler mais sobre XSS](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_XSS.md))
+([Ler mais sobre XSS](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/semana-1/Aula01_XSS.md))
 
 #### Exemplo de Session Hijacking por meio de XSS
 
@@ -84,7 +84,7 @@ Esse script colocado pelo atacante na página adiciona uma "imagem" na página. 
 ## Remediações
 
 * Ataque XSS: definir os _cookies_ com a política HTTP-Only (Leia abaixo)
-* Ataque MITM: criptografar a conexão, usando HTTPS ([Ler Mais](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_HTTPS.md))
+* Ataque MITM: criptografar a conexão, usando HTTPS ([Ler Mais](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/semana-1/Aula01_HTTPS.md))
 
 ## Extras
 
@@ -122,7 +122,7 @@ CSP - Content Security Policy - é um _header_ na conexão HTTP ou HTTPS que ind
 
 CORS - Cross-Origin Resource Sharing - é um _header_ que o site passa para o navegador, dizendo com quais sites ele pode se conectar por meio da página atual. Esse recurso evita que XSS consiga enviar o _cookie_ roubado para o site do atacante (ainda é possível burlar isso com callbacks em alguns casos).
 
-[Leia mais na aula de XSS](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/Aula01_XSS.md)
+[Leia mais na aula de XSS](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/semana-1/Aula01_XSS.md)
 
 ## Leia Mais
 https://klauslaube.com.br/2012/04/05/entendendo-os-cookies-e-sessoes.html \

@@ -3,25 +3,21 @@
 ## Sumário - Aulas Semana 2
 
 ### Conceitos iniciais:
-- [Arquitetura de uma aplicação Web (e a diferença entre Internet e Web)](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/semana-1/Arquitetura_web.md)
+- [Servidores Web, o que são?](Servidores_Web.md)
+- [Ports e Servicos](Ports_e_Servicos.md)
 
-### Estrutura do front-end de uma página Web:
-- [Introdução ao HTML](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/semana-1/HTML.md)
-- [Introdução ao CSS](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/semana-1/CSS.md)
-- [Introdução ao Javascript](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/semana-1/Javascript.md)
+### Estrutura back-end de uma página Web dinámica:
+- [Linguagens de Programação (Server Side)](Linguagens_Server_Side.md)
+- [API's e Serviços Rest](APIS_e_Rest.md)
 
-### Comunicação na Web:
-- [Entendendo as URLs](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/semana-1/URLs.md)
-- [Protocolo HTTP](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/semana-1/Protocolo_HTTP.md)
-- [Protocolo HTTPS](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/semana-1/Protocolo_HTTPS.md)
-- [Cookies e sessões](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/semana-1/Cookies_e_sessoes.md)
+## Bancos de dados, o que são:
+- [Introdução aos Bancos de Dados](Bancos_de_Dados.md)
 
 ### Algumas vulnerabilidades:
-- [Cross Site Scripting (XSS)](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/semana-1/XSS.md)
-- [XML External Entities (XML) Injection](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/semana-1/XXE.md)
-- [SQL Injection](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/semana-1/SQL_Injection.md)
+- [SQL Injection](SQL_Injection.md)
+- [Command Injection](Command Injection)
 
 ---
 #### Autores do material:
-- Gabriel Van Loon
-- Alexandre Junior
+- [Gabriel Van Loon](https://github.com/GabrielVanLoon)
+- [Alexandre Junior](#)

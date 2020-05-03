@@ -4,7 +4,7 @@
 
 ### Conceitos iniciais:
 - [Servidores Web, o que são?](Servidores_Web.md)
-- [Ports e Servicos](Ports_e_Servicos.md)
+- [Ports e Serviços](Ports_e_Servicos.md)
 
 ### Estrutura back-end de uma página Web dinámica:
 - [Linguagens de Programação (Server Side)](Linguagens_Server_Side.md)

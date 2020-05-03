@@ -1,6 +1,6 @@
 # Ganesh - Ping 2020
 
-## Sumário - Aulas Semana 1
+## Sumário - Aulas Semana 2
 
 ### Conceitos iniciais:
 - [Arquitetura de uma aplicação Web (e a diferença entre Internet e Web)](https://github.com/Haltz01/Ganesh_PingWeb2020_Aula01/blob/master/semana-1/Arquitetura_web.md)
@@ -23,5 +23,5 @@
 
 ---
 #### Autores do material:
-- [Marcus Vinícius Castelo Branco](https://github.com/marcuscastelo)
-- [Pedro Guerra Lourenço](https://github.com/Haltz01)
+- Gabriel Van Loon
+- Alexandre Junior

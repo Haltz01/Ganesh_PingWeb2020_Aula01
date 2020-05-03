@@ -15,7 +15,7 @@
 
 ### Algumas vulnerabilidades:
 - [SQL Injection](SQL_Injection.md)
-- [Command Injection](Command Injection)
+- [Command Injection](Command_Injection.md)
 
 ---
 #### Autores do material:

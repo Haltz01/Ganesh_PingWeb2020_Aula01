@@ -16,6 +16,7 @@
 ### Algumas vulnerabilidades:
 - [SQL Injection](SQL_Injection.md)
 - [Command Injection](Command_Injection.md)
+- [Insecure Direct Object Reference](IDOR.md)
 
 ---
 #### Autores do material:

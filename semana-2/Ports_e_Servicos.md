@@ -1,6 +1,6 @@
-# Ports e Serviços
+# Portas e Serviços
 
-*No texto de Servidores Web abordamos principalmente os serviços que são servidos por meio das requisições HTTP. Vamos comentar agora sobre outros serviços que, na maioria dos casos, também estão presentes em um servidor.*
+_No texto de Servidores Web abordamos principalmente os serviços que são servidos por meio das requisições HTTP. Vamos comentar agora sobre outros serviços que, na maioria dos casos, também estão presentes em um servidor._
 
 ## O que são Ports?
 
@@ -10,9 +10,9 @@ Este é o objetivo das portas: uma sequência numérica de 16 bits que identific
 
 Não é o objetivo desse texto se aprofundar no funcionamento técnico das portas ou do modelo TCP/IP. Mas, caso seja do seu interesse, você poderá ler um pouco sobre isso nos links abaixo:
 
-* O que são Portas TCP e UDP? (https://www.youtube.com/watch?v=SMU92puJxdU)
-* Portas (https://pt.wikipedia.org/wiki/Porta_(redes_de_computadores)#Fun%C3%A7%C3%A3o_multiplexagem)
-* TCP/IP (https://pt.wikipedia.org/wiki/TCP/IP)
+* O que são Portas TCP e UDP? \([https://www.youtube.com/watch?v=SMU92puJxdU](https://www.youtube.com/watch?v=SMU92puJxdU)\)
+* Portas \([https://pt.wikipedia.org/wiki/Porta\_\(redes\_de\_computadores\)\#Fun%C3%A7%C3%A3o\_multiplexagem](https://pt.wikipedia.org/wiki/Porta_%28redes_de_computadores%29#Fun%C3%A7%C3%A3o_multiplexagem)\)
+* TCP/IP \([https://pt.wikipedia.org/wiki/TCP/IP](https://pt.wikipedia.org/wiki/TCP/IP)\)
 
 ## Convenções e Port Scanners
 
@@ -20,20 +20,18 @@ Com o crescimento da Internet e seus serviços, algumas convenções foram adota
 
 Um Servidor HTTP, por exemplo, é comumente executado na porta 80. Dessa forma, ao acessar um website por meio de um browser, não é necessário dizer ao navegador qual será a porta utilizada para enviar as requisições, uma vez que o navegador irá definir, por conta própria, a porta padrão a ser utilizada.
 
-Você pode ver no link a seguir uma grande lista com diversos serviços e suas respectivas portas (lembre-se que tal convenção não é obrigatória, podendo esses serviços serem distribuidos em outras portas sob critério do administrador do servidor) https://pt.wikipedia.org/wiki/Lista_de_portas_dos_protocolos_TCP_e_UDP.
+Você pode ver no link a seguir uma grande lista com diversos serviços e suas respectivas portas \(lembre-se que tal convenção não é obrigatória, podendo esses serviços serem distribuidos em outras portas sob critério do administrador do servidor\) [https://pt.wikipedia.org/wiki/Lista\_de\_portas\_dos\_protocolos\_TCP\_e\_UDP](https://pt.wikipedia.org/wiki/Lista_de_portas_dos_protocolos_TCP_e_UDP).
 
 Mas como saber se um servidor web dispõe ou não de outros serviços? Para isso existem ferramentas chamadas de Port Scanners, cujo objetivo é verificar se a máquina do servidor está escutando por requisições para tais serviços. Essas ferramentas podem tanto fazer uma busca simples, baseando-se nas portas mais convencionais, quanto utilizar a força bruta para buscar serviços em portas não usuais.
 
-
 ## Exemplos de Serviços
 
-* **Port 20/21 - File Transfer Protocol (FTP):** Protocolo que permite transferir arquivos entre dois computador conectados via Internet (Saiba mais: https://www.hostinger.com.br/tutoriais/ftp-o-que-e-como-funciona). Uma falha nesse serviço pode ocasionar livre acesso à injeção de arquivos (por vezes maliciosos).
-* **Port 22 - Secure Shell (SSH):** Protocolo que permite acesso e controle remoto do servidor por meio de uma comunicação criptografada.
-* **Port 25/587 - Simple Mail Transfer Protocol (SMTP):** Protocolo para envio de mensagens de correio eletrônico. É um serviço usado apenas para saída de pacotes.
-* **Port 110 - Post Office Protocol version 3 (POP3)** Protocolo utilizado para acesso remoto a servidores de e-mail. Permite o download das mensagens para a máquina local.
+* **Port 20/21 - File Transfer Protocol \(FTP\):** Protocolo que permite transferir arquivos entre dois computador conectados via Internet \(Saiba mais: [https://www.hostinger.com.br/tutoriais/ftp-o-que-e-como-funciona](https://www.hostinger.com.br/tutoriais/ftp-o-que-e-como-funciona)\). Uma falha nesse serviço pode ocasionar livre acesso à injeção de arquivos \(por vezes maliciosos\).
+* **Port 22 - Secure Shell \(SSH\):** Protocolo que permite acesso e controle remoto do servidor por meio de uma comunicação criptografada.
+* **Port 25/587 - Simple Mail Transfer Protocol \(SMTP\):** Protocolo para envio de mensagens de correio eletrônico. É um serviço usado apenas para saída de pacotes.
+* **Port 110 - Post Office Protocol version 3 \(POP3\)** Protocolo utilizado para acesso remoto a servidores de e-mail. Permite o download das mensagens para a máquina local.
 * **Port 80 - HTTP**
-* **Port 443 - HTTP Secure (HTTPS)**
-
+* **Port 443 - HTTP Secure \(HTTPS\)**
 
 ## Qual a importância?
 
@@ -44,4 +42,3 @@ Sob a perspectiva de um agente malicioso, um Scan de Portas é geralmente um dos
 Não é incomum, por exemplo, a existência de bots que vasculham a internet em busca de determinados serviços para, em seguida, realizar ataques automatizados por meio de vulnerabilidades já conhecidas.
 
 Já sob a perspectiva de um administador da máquina, um Scan de Portas é interessante, pois pode denúnciar a existência de backdoors ou outros processos maliciosos - como de um servidor FTP em uma porta não convencional.
-
